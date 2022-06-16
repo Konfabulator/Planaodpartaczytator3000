@@ -4,12 +4,12 @@ from decoder        import decode_subj_file
 from plano_definder import defind_all_plans
 
 directory = os.path.dirname(os.path.realpath(__file__)) + '//'
-pdtabulate=lambda df:tabulate(df,Kolumny,tablefmt='presto')
+tabelka = lambda df:tabulate(df,Kolumny,tablefmt='presto')
 
-file_to_read = input("Wprowadź nazwę pliku z godzinami")#"Z2022_23.txt"
+file_to_read = input("Wprowadź nazwę pliku z godzinami")                        #"Z2022_23.txt"
 file_to_write = "Plany_"+file_to_read 
-schedules = open(directory + '\\'  + file_to_write, "w+", encoding="utf-8")
-# Dane do tabeli
+schedules = open(directory + '\\'  + file_to_write, "w+", encoding="utf-8")     # plik wyjściowy z planami zajęć
+
 Kolumny = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 Wiersze = ['8','9','10','11','12','13','14','15','16','17','18']
 
@@ -28,5 +28,5 @@ print('Znaleziono '+ str(len(wykonalne_plany)) + ' z '+str(possibilities) + ' Ze
 
 for i in range(len(wykonalne_plany)):
     schedules.write(str(i+1)+'.\n')
-    schedules.write(pdtabulate(wykonalne_plany[i]))
+    schedules.write(tabelka(wykonalne_plany[i]))
     schedules.write("\n\n\n")
