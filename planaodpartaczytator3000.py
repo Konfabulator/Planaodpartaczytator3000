@@ -7,7 +7,7 @@ directory = os.path.dirname(os.path.realpath(__file__)) + '//'
 pdtabulate=lambda df:tabulate(df,Kolumny,tablefmt='presto')
 
 file_to_read = input("Wprowadź nazwę pliku z godzinami")#"Z2022_23.txt"
-file_to_write = "Plany_"+file_to_read
+file_to_write = "Plany_"+file_to_read 
 schedules = open(directory + '\\'  + file_to_write, "w+", encoding="utf-8")
 
 Kolumny = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
