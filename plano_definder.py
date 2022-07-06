@@ -1,5 +1,5 @@
 def defind_all_plans(p, grupy, godzina_start=8, pomijane_przedmioty=[]):
-    Wiersze = ['8','9','10','11','12','13','14','15','16','17','18']
+    Wiersze = ['8','9','10','11','12','13','14','15','16','17','18','19','20']
     kliker_grupa = [0 for i in range(len(p))]
     Gotowe_plany = []
     while True:
@@ -35,7 +35,7 @@ def defind_all_plans(p, grupy, godzina_start=8, pomijane_przedmioty=[]):
                     continue
                 break
         else:        
-            plan = [['' for j in range(5+1)] for i in range(8,18)]
+            plan = [['' for j in range(5+1)] for i in range(int(Wiersze[0]),int(Wiersze[-1]))]
             for i in range(len(zestaw)):                                            #przedmiot
                 for j in range(len(zestaw[i][1])):                                  #zajęcia
                     for k in range(zestaw[i][1][j][1]-8,zestaw[i][1][j][2]-8):
