@@ -21,16 +21,15 @@ Celem skorzystania z aplikacji wystaczy uruchomić plik "planaodpartaczytator300
     a kolejne wiersze to grupy zajęciowe.
 
     
-- <span style="color:orange;"> Podać czy plik ma zostać tylko przeanalizowany R, czy zapisany a następnie przeanalizowany W.
-</span>
+- <span style="color:orange;"> Podać czy plik ma zostać tylko przeanalizowany R, czy zapisany a następnie przeanalizowany W. </span>
 
-    + Jeśli W - Użytkownik zostanie poproszony o wprowadzenie linku do strony przedmiotowej \
+    - Jeśli W - Użytkownik zostanie poproszony o wprowadzenie linku do strony przedmiotowej 
 (<span style="color:red;">UWAGA: nie obsługuje języka innego niż PL, nie działa na żadne zajęcia ogólnouniwersyteckie - 
-    należy je ręcznie wprowadzić do pliku </span>).\
+    należy je ręcznie wprowadzić do pliku </span>).
     Następnie zostaną utworzone wszystkie plany według R.
 
-    + Jeśli R - Program rozpatrzy wszystkie kombinacje wszystkich wymienionych w pliku zajęć
-    (z każdych zajęć zostanie wybrana jedna grupa)\
+    - Jeśli R - Program rozpatrzy wszystkie kombinacje wszystkich wymienionych w pliku zajęć
+    (z każdych zajęć zostanie wybrana jedna grupa)
     i poda tylko te bez "nakładek" w pliku: "Plany_{name}.txt" w formie eleganckich tabelek.
 
 - <span style="color:orange;"> To tyle. miłej zabawy </span>
