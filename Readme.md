@@ -4,9 +4,9 @@
 Odpartaczy każdy plan zwracając wszystkie możliwe opcje we jednym schludnym pliku tekstowym.
 
 ## <span style="color:orange;"> Obsługi Instrukcja </span>
-Celem skorzystania z aplikacji wystaczy uruchomić plik "planaodpartaczytator3000.py".
+Celem skorzystania z aplikacji wystarczy uruchomić plik "planaodpartaczytator3000.py".
 
-- <span style="color:orange;">Podać nazwę pliku ze wszystkimi grupami zająciowymi. </span>
+- <span style="color:orange;">Podać nazwę pliku ze wszystkimi grupami zajęciowymi. </span>
 
     Zawartość pliku jest w formie:\
     <span style="color:violet;">
@@ -32,7 +32,7 @@ Celem skorzystania z aplikacji wystaczy uruchomić plik "planaodpartaczytator300
     (z każdych zajęć zostanie wybrana jedna grupa)
     i poda tylko te bez "nakładek" w pliku: "Plany_{name}.txt" w formie eleganckich tabelek.
 
-- <span style="color:orange;"> To tyle. miłej zabawy </span>
+- <span style="color:orange;">To tyle. dobrej zabawy i miłego dnia</span>
 ## Autor
 
 - [@Konfabulator](https://github.com/Konfabulator)
