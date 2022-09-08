@@ -21,7 +21,7 @@ Celem skorzystania z aplikacji wystarczy uruchomić plik "planaodpartaczytator30
     a kolejne wiersze to grupy zajęciowe.
 
     
-- <span style="color:orange;"> Podać czy plik ma zostać tylko przeanalizowany R, czy zapisany a następnie przeanalizowany W. </span>
+- <span style="color:orange;"> Podać czy plik ma zostać tylko przeanalizowany R, czy utworzony a następnie przeanalizowany W. </span>
 
     - Jeśli W - Użytkownik zostanie poproszony o wprowadzenie linku do strony przedmiotowej 
 (<span style="color:red;">UWAGA: nie obsługuje języka innego niż PL, nie działa na żadne zajęcia ogólnouniwersyteckie - 

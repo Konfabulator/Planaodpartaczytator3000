@@ -97,5 +97,7 @@ def get_hours(directory):
                         if_was = True
                     plik_z_grupami.write('\n')
                 plik_z_grupami.write('\n')
+            plik_z_grupami.flush()
+            # os.fsync(plik_z_grupami.fileno())
 
         plik_z_grupami.close()
