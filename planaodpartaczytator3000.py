@@ -7,11 +7,9 @@ from web_writer     import get_hours
 directory = os.path.dirname(os.path.realpath(__file__)) + '//'
 tabelka = lambda df:tabulate(df,Kolumny,tablefmt='presto')
 
-file_to_read = input("Wprowadź nazwę pliku z godzinami: ")                      #"Z2022_23.txt"
+file_to_read = input("Wprowadź nazwę pliku z godzinami: ")                      # "Z2022_23.txt"
 file_to_write = "Plany_" + file_to_read                                         # plik wyjściowy z planami zajęć
-
-get_hours(directory + '\\'  + file_to_read)                                    # tworzenie pliku wejściowego
-
+get_hours(directory + '\\'  + file_to_read)                                     # tworzenie pliku wejściowego
 schedules = open(directory + '\\'  + file_to_write, "w+", encoding="utf-8")     # gotowe plany zajęć
 
 
