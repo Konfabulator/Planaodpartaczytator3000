@@ -19,6 +19,7 @@ def get_title(html_page, title = "title"):
     #             return html_page[i]
     #             # return(html_page[i].split('-')[0].strip()[7:])
 def Read_subj_page(url):
+    print(url+'\n\n\n\n')
     html = urlopen(url).read().decode("utf-8").splitlines()
     page_title = get_title(html)
 
@@ -45,7 +46,7 @@ def Read_subj_page(url):
     return classes_names, classes_links
 
 def Read_website(url, subject=True):
-    html = urlopen(url).read().decode("utf-8").splitlines()
+    # html = urlopen(url).read().decode("utf-8").splitlines()
     # classes_names, classes_links = [],[]
     # if subject:
     classes_names, classes_links = Read_subj_page(url)
