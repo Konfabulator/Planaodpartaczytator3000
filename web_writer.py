@@ -54,13 +54,10 @@ def Read_website(url, subject=True):
     #     classes_names = [get_title(html)]
     #     classes_links = [url]
     classes = []
-    # print(classes_links)
     for u in range(len(classes_links)):
-        # print(get_title(urlopen(classes_links[u]).read().decode("utf-8").splitlines(),"h1"))
         classes.append([])
         df = pd.read_html(requests.get(classes_links[u]).content)[-1]
         grupy = df.values.tolist()[:-1]
-        # print(df)
         for i in grupy:
             classes[-1].append([])
             grupa = i[1].split(',')

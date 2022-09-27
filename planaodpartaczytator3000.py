@@ -18,7 +18,7 @@ Kolumny = ["poniedziałek", "wtorek", "środa", "czwartek", "piątek"]
 Wiersze = ['8','9','10','11','12','13','14','15','16','17','18']
 
 
-pomijane_przedmioty = []#"Hiszpański"
+pomijane_przedmioty = []
 godzina_start = 8
 
 przedmioty, grupy = decode_subj_file(file_to_read,directory)
