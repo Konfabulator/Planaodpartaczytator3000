@@ -19,7 +19,7 @@ def get_title(html_page, title = "title"):
     #             return html_page[i]
     #             # return(html_page[i].split('-')[0].strip()[7:])
 def Read_subj_page(url):
-    print(url+'\n\n\n\n')
+    print(url+'\n\n')
     html = urlopen(url).read().decode("utf-8").splitlines()
     page_title = get_title(html)
 
@@ -71,8 +71,12 @@ def Read_website(url, subject=True):
     return classes, classes_names
 
 def get_hours(directory):
-    if input('Read/Write [R/W]: ') == 'W':
-        plik_z_grupami = open(directory, "w+", encoding="utf-8")
+    ReadOrWrite = input('Read/Write/Append [R/W/A]: ')
+    if  ReadOrWrite.upper() == 'W' or ReadOrWrite.upper() == 'A':
+        if ReadOrWrite.upper() == 'W':
+            plik_z_grupami = open(directory, "w+", encoding="utf-8")
+        else:
+            plik_z_grupami = open(directory, "a+", encoding="utf-8")
         zetonowe = False
         while True:
             if zetonowe == False:
@@ -85,16 +89,19 @@ def get_hours(directory):
             a, b = Read_website(Url,not zetonowe)
             # print(a)
             for i in range(len(a)):
-                plik_z_grupami.write('"'+b[i]+'"\n')
-                for j in a[i]:
-                    if_was = False
-                    for k in j:
-                        if if_was == True:
-                            plik_z_grupami.write(', ')
-                        plik_z_grupami.write(k)
-                        if_was = True
+                if a[i] == [[]]:
+                    print('Brak godzin w grupie '+b[i])
+                else:
+                    plik_z_grupami.write('"'+b[i]+'"\n')
+                    for j in a[i]:
+                        if_was = False
+                        for k in j:
+                            if if_was == True:
+                                plik_z_grupami.write(', ')
+                            plik_z_grupami.write(k)
+                            if_was = True
+                        plik_z_grupami.write('\n')
                     plik_z_grupami.write('\n')
-                plik_z_grupami.write('\n')
             plik_z_grupami.flush()
             # os.fsync(plik_z_grupami.fileno())
 

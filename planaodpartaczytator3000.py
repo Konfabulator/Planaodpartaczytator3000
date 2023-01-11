@@ -9,17 +9,18 @@ tabelka = lambda df:tabulate(df,Kolumny,tablefmt='presto')
 
 file_to_read = input("Wprowadź nazwę pliku z godzinami: ")                      # "Z2022_23.txt"
 file_to_write = "Plany_" + file_to_read                                         # plik wyjściowy z planami zajęć
-get_hours(directory + '\\'  + file_to_read)                                     # tworzenie pliku wejściowego
-schedules = open(directory + '\\'  + file_to_write, "w+", encoding="utf-8")     # gotowe plany zajęć
+get_hours(directory + '//'  + file_to_read)                                     # tworzenie pliku wejściowego
+schedules = open(directory + '//'  + file_to_write, "w+", encoding="utf-8")     # gotowe plany zajęć
 
 
 # Kolumny = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 Kolumny = ["poniedziałek", "wtorek", "środa", "czwartek", "piątek"]
 Wiersze = ['8','9','10','11','12','13','14','15','16','17','18']
 
-
 pomijane_przedmioty = []
-godzina_start = 8
+# pomijane_przedmioty = ["Reinforcement learning Lab","Reinforcement learning W", "Basen","Taniec towarzyski", "Siłownia"]
+# pomijane_przedmioty = ["Reinforcement learning Lab","Reinforcement learning W","Analiza IV W", "Analiza IV Ć","Natural language processing Lab","Natural language processing W", "Basen","Taniec towarzyski", "Siłownia"]
+godzina_start = 1
 
 przedmioty, grupy = decode_subj_file(file_to_read,directory)
 wykonalne_plany = defind_all_plans(przedmioty, grupy, godzina_start, pomijane_przedmioty)
