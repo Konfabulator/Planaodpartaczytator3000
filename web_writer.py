@@ -36,10 +36,10 @@ def Read_subj_page(url):
                 if 'Koordynatorzy' in html[j]:
                     break
             break
-    return page_title, classes_names, classes_links
+    return classes_names, classes_links
 
 def Read_website(url, subject=True):
-    course_name, classes_names, classes_links = Read_subj_page(url)
+    classes_names, classes_links = Read_subj_page(url)
     classes = []
     for u in range(len(classes_links)):
         classes.append([])
@@ -55,7 +55,7 @@ def Read_website(url, subject=True):
                         classes[-1][-1].append(str(j+1)+hours)
                         zaj += 2
                         break
-    return course_name, classes, classes_names
+    return classes, classes_names
 
 def get_hours(directory, file_name):
     # check if plany folder exists
@@ -79,8 +79,8 @@ def get_hours(directory, file_name):
             if Course_Code == 'END':
                 print('\n')
                 break
-            Course_Url = find_course(Course_Code)
-            course_name, classes, classes_names = Read_website(Course_Url, not zetonowe)
+            Course_Url, Course_Name = find_course(Course_Code)
+            classes, classes_names = Read_website(Course_Url, not zetonowe)
             for i in range(len(classes)):
                 if classes[i] == [[]]:
                     print('Brak godzin w grupie '+classes_names[i])
@@ -96,6 +96,6 @@ def get_hours(directory, file_name):
                         plik_z_grupami.write('\n')
                     plik_z_grupami.write('\n')
             plik_z_grupami.flush()
-            print(f'Pobrano dane grup zajęciowych przedmiotu "{course_name}"\n')
+            print(f'Pobrano dane grup zajęciowych przedmiotu "{Course_Name}"\n')
             
         plik_z_grupami.close()
