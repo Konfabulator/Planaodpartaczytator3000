@@ -79,7 +79,7 @@ def get_hours(directory, file_name):
             if Course_Code == 'END':
                 print('\n')
                 break
-            Course_Url, Course_Name = find_course(Course_Code)
+            Course_Url, Course_Name = find_course(Course_Code, 'uw', 'pl')
             classes, classes_names = Read_website(Course_Url, not zetonowe)
             for i in range(len(classes)):
                 if classes[i] == [[]]:
