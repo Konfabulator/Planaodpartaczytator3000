@@ -3,8 +3,11 @@
 
 Odpartaczy każdy plan uczelni <span style="color:green;">UW</span> zwracając wszystkie możliwe opcje we jednym schludnym pliku tekstowym.
 <!-- write with italic -->
-<span style="font-style:italic">
-    Chwilowo nie zapowiada się by inne uczelnie miały być wspierane, jednakże autor, niżej podpisany, lubi siedzieć przed komputerem, więc nigdy nie wiadomo.
+<span style="color:red;font-style:italic;">
+    !!! Już teraz !!!<br>
+    (Trochę nieprzetestowana) opcja wyboru uczelni obsługującej USOS!!!<br>
+    Dodatkowo - prawie działająca opcja wyboru języka (PL/EN)!!!<br>
+    To nie wszystko - można wybierać semestr podczas wprowadzania przedmiotu!!!
 </span>
 
 ## <span style="color:orange;"> Obsługi Instrukcja </span>
@@ -40,7 +43,7 @@ Celem skorzystania z aplikacji wystarczy uruchomić plik "planaodpartaczytator30
 - <span style="color:orange;">To tyle. Życzę dobrej zabawy i miłego dnia</span>
 
 ## <span style="color:orange;"> Następne Wersje </span>
-    Z nadzieją można wypatrywać przyszłych wersji, zawierających między innymi interfejs graficzny, wyszukiwarkę przedmiotów oraz wsparcie dla innych uczelni.
+    Z nadzieją można wypatrywać przyszłych wersji, zawierających między innymi interfejs graficzny oraz wyszukiwarkę przedmiotów.
 
 ## Autor
 

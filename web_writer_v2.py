@@ -1,11 +1,13 @@
-import os, sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
+import os
+import re
 import requests
+import pandas as pd
+from urllib.request import urlopen
 import datetime
 from bs4 import BeautifulSoup
+
 from search_by_course_code import find_course
-import pandas as pandas
+
 
 # collect all tables from the course page
 def collect_tables(url):
@@ -36,7 +38,7 @@ def has_date(s):
             p1 = parts[i][-10:]
             p2 = parts[i+1][:10]
             if is_date(p1) and is_date(p2):
-                print(p1, p2)
+                # print(p1, p2)
                 return p1 + ' - ' + p2
     return False
 
@@ -84,55 +86,54 @@ def split_group_data(s, language):
     b = []
     for i in range(len(s)):
         a = s[i].split(',')
-        a[0] = days[language][int(a[0][-1])-1]
+        # a[0] = days[language][int(a[0][-1])-1]
+        a[0] = int(a[0][-1])
         b.append(a)
     return b
-    
 
-data = ('uw','1100-2AF23')
-# data = ('uj', 'WSM.IASP-KON1-24')
-language = 'pl'
-# collect course name and url
-url, name = find_course(data[1], data[0], language)
-print(url, name)
+def get_hours(class_input_data, language='pl'):
+    # collect course name and url
+    url, name = find_course(class_input_data[1], class_input_data[0], language)
+    print(name)
+    print(url)
+    print()
 
+    # remove unnecessary tables and collect dates between which the classes take place (possibly miltiple intervals - than user can choose one)
+    list_of_tables, _ = collect_tables(url)
+    list_of_dates = []
+    for t in range(len(list_of_tables)-1, -1, -1):
+        date = has_date(list_of_tables[t])
+        if not date:
+            list_of_tables.pop(t)
+            # print('removed')
+        else:
+            list_of_dates.append(date)
+    list_of_dates.reverse()
 
-# remove unnecessary tables and collect dates between which the classes take place (possibly miltiple intervals - than user can choose one)
-list_of_tables, _ = collect_tables(url)
-list_of_dates = []
-for t in range(len(list_of_tables)-1, -1, -1):
-    date = has_date(list_of_tables[t])
-    if not date:
-        list_of_tables.pop(t)
-        print('removed')
-    else:
-        list_of_dates.append(date)
-list_of_dates.reverse()
+    # print all dates and let user choose one
+    for i in range(len(list_of_dates)):
+        print(f'{i+1}. {list_of_dates[i]}')
+    choice = int(input('Choose date: '))-1
 
-
-# print all dates and let user choose one
-for i in range(len(list_of_dates)):
-    print(f'{i+1}. {list_of_dates[i]}')
-choice = int(input('Choose date: '))-1
-
-
-# collect links to classes pages (where the groups can be collected)
-title = {'pl': 'Typ zajęć:', 'en':'Type of class:'}
-list_of_links = []
-soup = BeautifulSoup(list_of_tables[choice], 'html.parser')
-rows = soup.find_all('td')
-for row in rows:
-    if row.text == title[language]:
-        links = row.find_next_sibling('td').find_all('a')
-        for link in links:
-            list_of_links.append(link['href']+f'&lang={language}') 
-print(list_of_links)
-
-for link in list_of_links:
-    class_title, groups = collect_groups(link, language)
-    groups_data = {}
-    # go through all groups and collect times (convert days to numbers) and rooms
-    for group in groups.keys():
-        groups_data[group] = split_group_data(groups[group], language)
-    print(class_title)
-    print(groups_data)
+    # collect links to classes pages (where the groups can be collected)
+    title = {'pl': 'Typ zajęć:', 'en':'Type of class:'}
+    list_of_links = []
+    soup = BeautifulSoup(list_of_tables[choice], 'html.parser')
+    rows = soup.find_all('td')
+    for row in rows:
+        if row.text == title[language]:
+            links = row.find_next_sibling('td').find_all('a')
+            for link in links:
+                list_of_links.append(link['href']+f'&lang={language}') 
+    # print(list_of_links)
+    groups_for_each_unit = {}
+    for link in list_of_links:
+        class_title, groups = collect_groups(link, language)
+        groups_data = {}
+        # go through all groups and collect times (convert days to numbers) and rooms
+        for group in groups.keys():
+            groups_data[group] = split_group_data(groups[group], language)
+        # print(class_title)
+        # print(groups_data)
+        groups_for_each_unit[name+' '+class_title] = groups_data
+    return groups_for_each_unit
