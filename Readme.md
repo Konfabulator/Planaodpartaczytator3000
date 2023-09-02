@@ -1,7 +1,7 @@
 
 # Planaodpartaczytator3000
 
-Odpartaczy każdy plan uczelni <span style="color:green;">UW</span> zwracając wszystkie możliwe opcje we jednym schludnym pliku tekstowym.
+Odpartaczy każdy plan <span style="color:green;">niemal dowolnej, polskiej</span> uczelni zwracając wszystkie możliwe opcje we jednym schludnym pliku tekstowym.
 <!-- write with italic -->
 <span style="color:red;font-style:italic;">
     !!! Już teraz !!!<br>
@@ -45,6 +45,63 @@ Celem skorzystania z aplikacji wystarczy uruchomić plik "planaodpartaczytator30
 ## <span style="color:orange;"> Następne Wersje </span>
     Z nadzieją można wypatrywać przyszłych wersji, zawierających między innymi interfejs graficzny oraz wyszukiwarkę przedmiotów.
 
+## Lista symboli obsługiwanych uczelni:
+<span style="color:orange;">
+<br>"AMISNS" :                                                                              "amisns"
+<br>"Akademia Nauk Stosowanych Stefana Batorego" :                                          "ansb"
+<br>"Akademia Wychowania Fizycznego im. Bronisława Czecha w Krakowie" :                     "awf"
+<br>"Chrześcijańska Akademia Teologiczna" :                                                 "chat"
+<br>"Jan Dlugosz University in Czestochowa" :                                               "ujd"
+<br>"National Academy of Dramatic Art in Warsaw" :                                          "at"
+<br>"PWSTE w Jarosławiu" :                                                                  "pwste"
+<br>"SGH Warsaw School of Economics" :                                                      "sgh"
+<br>"The Academy of Fine Arts and Design in Katowice" :                                     "asp"
+<br>"The Adam Mickiewicz University in Poznan" :                                            "amu"
+<br>"The Bialystok School of Economics" :                                                   "wse"
+<br>"The Bydgoszcz University of Science and Technology" :                                  "pbs"
+<br>"The Cardinal Stefan Wyszynski University" :                                            "uksw"
+<br>"The Cracow University of Economic" :                                                   "uek"
+<br>"The DSW University of Lower Silesia" :                                                 "dsw"
+<br>"The Feliks Nowowiejski Academy of Music" :                                             "amuz"
+<br>"The Helena Chodkowska University of Law in Wrocław" :                                  "prawowroclaw"
+<br>"The Jagiellonian University" :                                                         "uj"
+<br>"The Jerzy Kukuczka Academy of Physical Education in Katowice" :                        "awf"
+<br>"The Kazimierz Wielki University" :                                                     "ukw"
+<br>"The Kielce University of Technology" :                                                 "tuk"
+<br>"The Krosno Academy of Applied Sciences" :                                              "kpu"
+<br>"The Military University of Technology in Warsaw" :                                     "wat"
+<br>"The Nicolaus Copernicus University" :                                                  "umk"
+<br>"The Opole University of Technology" :                                                  "po"
+<br>"The Pontifical University of John Paul II" :                                           "upjp2"
+<br>"The Poznan University of Technology" :                                                 "put"
+<br>"The Poznań University of Economics and Business" :                                     "uep"
+<br>"The Rzeszów University of Technology" :                                                "prz"
+<br>"The Siedlce University of Natural Sciences and Humanities" :                           "uph"
+<br>"The Silesian University of Technology" :                                               "polsl"
+<br>"The Stanisław Staszic State University of Applied Sciences in Piła" :                  "ans"
+<br>"The Technical University of Koszalin" :                                                "tu"
+<br>"The University University of Technology and Economics" :                               "uth"
+<br>"The University of APS" :                                                               "aps"
+<br>"The University of Agriculture" :                                                       "ur"
+<br>"The University of Bialystok" :                                                         "uwb"
+<br>"The University of Euroregional Economy in Józefów - Warsaw" :                          "wsge"
+<br>"The University of Lodz" :                                                              "ul"
+<br>"The University of Maria Curie-Skłodowska" :                                            "umcs"
+<br>"The University of Opole" :                                                             "uop"
+<br>"The University of Silesia in Katowice" :                                               "us"
+<br>"The University of Warmia and Mazury in Olsztyn" :                                      "uwm"
+<br>"The University of Warsaw" :                                                            "uw"
+<br>"The University of Wroclaw" :                                                           "uwr"
+<br>"The Warsaw University of Technology" :                                                 "pw"
+<br>"The Wroclaw University of Economics" :                                                 "uew"
+<br>"The Wroclaw University of Science and Technology" :                                    "pwr"
+<br>"The Wrocław University of Environmental and Life Science" :                            "upwr"
+<br>"The president Stanisław Wojciechowski Higher Vocational State School in Kalisz" :      "pwsz"
+<br>"University of Lomza" :                                                                 "pwsip"
+<br>"Uniwerstytet Muzyczny Fryderyka Chopina" :                                             "chopin"
+<br>"VISTULA UNIVERSITY" :                                                                  "vistula"
+<br>"Wyższa Szkoła Bezpieczeństwa Publicznego i Indywidualnego „Apeiron” w Krakowie" :      "apeiron"         
+<br></span>
 ## Autor
 
 - [@Konfabulator](https://github.com/Konfabulator)

@@ -1,9 +1,6 @@
 import os
-import re
 import requests
 import pandas as pd
-from urllib.request import urlopen
-import datetime
 from bs4 import BeautifulSoup
 
 from search_by_course_code import find_course
@@ -25,7 +22,14 @@ def collect_tables(url):
 # check if the string is a date in format YYYY-MM-DD
 def is_date(s):
     try:
-        datetime.datetime.strptime(s, '%Y-%m-%d')
+        year, month, day = s.split('-')
+        year, month, day = int(year), int(month), int(day)
+        if year < 0 or year > 9999:
+            return False
+        if month < 1 or month > 12:
+            return False
+        if day < 1 or day > 31:
+            return False
         return True
     except ValueError:
         return False

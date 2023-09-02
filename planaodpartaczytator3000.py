@@ -1,4 +1,15 @@
 # planaodpartaczytator3000
+import subprocess
+
+try:
+    # subprocess.check_call(["pip", "install", "-r", "requirements.txt"])
+    # avoid printing Requirement already satisfied:
+    print("Instalowanie wymaganych bibliotek...  ", end="")
+    subprocess.check_output(["pip", "install", "-r", "requirements.txt"])
+    print("Done\n")
+except subprocess.CalledProcessError:
+    print("Nie udało się zainstalować wymaganych bibliotek. Spróbuj ręcznie zainstalować biblioteki z pliku requirements.txt")
+
 import os
 from tabulate       import tabulate
 from decoder        import decode_subj_file
