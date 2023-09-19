@@ -64,8 +64,46 @@ def collect_groups(link, language):
         for i in range(len(df)):
             groups[df.iloc[i, 0]] = df.iloc[i, 1]
     return class_title, groups        
-
+# '''
 def split_group_data(s, language):
+    days = {'pl': ["poniedziałek", "wtorek", "środa", "czwartek", "piątek"],
+            'en': ["monday", "tuesday", "wednesday", "thursday", "friday"]}
+    groups = []
+    s = s.lower()
+    while s.find('  ') != -1:
+        s = s.replace('  ', ' ')
+    words = s.split(' ')
+    for i in range(len(words)):
+        word = words[i]
+        for d in days[language]:
+            if d in word:
+                a = [d, '']
+                for j in range(i + 1, len(words)):
+                    word = words[j]
+                    if word == ' ':
+                        continue
+                    if word[0].isdigit():
+                        a[1] += word
+                    elif word[0] in [':', '-']:
+                        a[1] += word
+                    else:
+                        break
+                # remove unwanted characters
+                for i in range(len(a[1])-1, -1, -1):
+                    if a[1][i] not in [' ', ':', '-'] and not a[1][i].isdigit():
+                        a[1] = a[1][:i] + a[1][i+1:]
+                groups.append(a)
+    dates = []
+    for group in groups:
+        day = group[0]
+        times = group[1].split(day)
+        for time in times:
+            if time != '':
+                dates.append([days[language].index(day) + 1, time.strip()])
+    return dates
+'''
+def split_group_data(s, language):
+    print(s)
     room = {'pl': 'sala', 'en':'room'}
     days = {'pl': ["poniedziałek", "wtorek", "środa", "czwartek", "piątek"],
             'en': ["monday", "tuesday", "wednesday", "thursday", "friday"]}
@@ -93,7 +131,10 @@ def split_group_data(s, language):
         # a[0] = days[language][int(a[0][-1])-1]
         a[0] = int(a[0][-1])
         b.append(a)
+    print(b)
+    print('###')
     return b
+# '''
 
 def get_hours(class_input_data, language='pl'):
     # collect course name and url

@@ -24,20 +24,22 @@ file_to_read = input("Wprowadź nazwę pliku z godzinami: ")                    
 file_to_write = "Plany_" + file_to_read                                         # plik wyjściowy z planami zajęć
 # get_hours(directory , file_to_read)                                             # tworzenie pliku wejściowego
 # choose language and the university
-language = input('Choose language [pl/en]: ').strip()
-university = input('Choose university [uw/uj/uksw/...]: ').strip()
-classes_data = {}
-while True:
-    Course_Code = input("Kod Przedmiotu (lub END):\n")
-    Course_Code = Course_Code.strip()
-    if Course_Code == 'END':
-        print('\n')
-        break
-    
-    a = get_hours((university, Course_Code), language)
-    classes_data = {**classes_data, **a}
-write_class_data_to_file(directory, file_to_read, 'W', classes_data)
-    
+# check if the file exists
+if not os.path.isfile(directory + file_to_read):
+    language = input('Choose language [pl/en]: ').strip()
+    university = input('Choose university [uw/uj/uksw/...]: ').strip()
+    classes_data = {}
+    while True:
+        Course_Code = input("Kod Przedmiotu (lub END):\n")
+        Course_Code = Course_Code.strip()
+        if Course_Code == 'END':
+            print('\n')
+            break
+        
+        a = get_hours((university, Course_Code), language)
+        classes_data = {**classes_data, **a}
+    write_class_data_to_file(directory, file_to_read, 'W', classes_data)
+        
 schedules = open(directory + '//'  + file_to_write, "w+", encoding="utf-8")     # gotowe plany zajęć
 
 
