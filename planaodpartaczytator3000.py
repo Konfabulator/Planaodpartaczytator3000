@@ -30,6 +30,7 @@ if not os.path.isfile(directory + file_to_read):
     university = input('Choose university [uw/uj/uksw/...]: ').strip()
     classes_data = {}
     while True:
+        print('\n###')
         Course_Code = input("Kod Przedmiotu (lub END):\n")
         Course_Code = Course_Code.strip()
         if Course_Code == 'END':
@@ -45,19 +46,22 @@ schedules = open(directory + '//'  + file_to_write, "w+", encoding="utf-8")     
 
 # Kolumny = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 Kolumny = ["poniedziałek", "wtorek", "środa", "czwartek", "piątek"]
-Wiersze = ['8','9','10','11','12','13','14','15','16','17','18']
+Wiersze = ['8','9','10','11','12','13','14','15','16','17','18','19','20','21']
 
 pomijane_przedmioty = []
 # pomijane_przedmioty = ["Reinforcement learning Lab","Reinforcement learning W","Analiza IV W", "Analiza IV Ć","Natural language processing Lab","Natural language processing W", "Basen","Taniec towarzyski", "Siłownia"]
 godzina_start = 1
 
-przedmioty, grupy = decode_subj_file(file_to_read,directory)
-wykonalne_plany = defind_all_plans(przedmioty, grupy, godzina_start, pomijane_przedmioty)
+przedmioty, grupy_godz, grupy_no = decode_subj_file(file_to_read,directory)
+
+# print(grupy_godz)
+# print(grupy_no)
+wykonalne_plany = defind_all_plans(przedmioty, grupy_godz, grupy_no, godzina_start, pomijane_przedmioty)
 
 possibilities = 1
 for k in range(len(przedmioty)):
     if przedmioty[k] not in pomijane_przedmioty:
-        possibilities *= len(grupy[k])
+        possibilities *= len(grupy_godz[k])
 
 for i in range(len(wykonalne_plany)):
     schedules.write(str(i+1)+'.\n')

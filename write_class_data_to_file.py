@@ -12,7 +12,7 @@ def write_class_data_to_file(directory, file_name, write_mode, DATA):
                 f.write(f'"{unit}"\n')
                 # print(f'"{unit}"\n')
                 for group_no in DATA[unit].keys():
-                    # f.write(f'{group_no} ')
+                    f.write(f'({group_no}) ')
                     for termin in DATA[unit][group_no]:
                         # print(termin)
                         f.write(f'{termin[0]} {termin[1]}, ')
