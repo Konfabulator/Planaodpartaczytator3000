@@ -101,40 +101,7 @@ def split_group_data(s, language):
             if time != '':
                 dates.append([days[language].index(day) + 1, time.strip()])
     return dates
-'''
-def split_group_data(s, language):
-    print(s)
-    room = {'pl': 'sala', 'en':'room'}
-    days = {'pl': ["poniedziałek", "wtorek", "środa", "czwartek", "piątek"],
-            'en': ["monday", "tuesday", "wednesday", "thursday", "friday"]}
-    # replace days with numbers
-    for i in range(len(days[language])):
-        s = s.replace(days[language][i], str(i+1))
-    # remove rooms
-    s = s.replace(f'{room[language]}', '')
-    # remove spaces after commas
-    while s.find(', ') != -1:
-        s = s.replace(', ', ',')
-    # connect days with times
-    s = s.replace(' - ', '-')
-    # remove spaces before every number
-    for i in range(10):
-        s = s.replace(f' {i}', str(i))
-    # split by space
-    s = s.split(' ')
-    # remove empty strings
-    while '' in s:
-        s.remove('')
-    b = []
-    for i in range(len(s)):
-        a = s[i].split(',')
-        # a[0] = days[language][int(a[0][-1])-1]
-        a[0] = int(a[0][-1])
-        b.append(a)
-    print(b)
-    print('###')
-    return b
-# '''
+
 
 def get_hours(class_input_data, language='pl'):
     # collect course name and url
@@ -158,8 +125,13 @@ def get_hours(class_input_data, language='pl'):
     # print all dates and let user choose one
     for i in range(len(list_of_dates)):
         print(f'{i+1}. {list_of_dates[i]}')
-    choice = int(input('Choose date: '))-1
-
+    
+    if language == 'pl':
+        choice = int(input('Wybierz datę(0 jeśli żadną z nich): '))-1
+    else:
+        choice = int(input('Choose date(0 if none): '))-1
+    if choice == -1:
+        return {}
     # collect links to classes pages (where the groups can be collected)
     title = {'pl': 'Typ zajęć:', 'en':'Type of class:'}
     list_of_links = []
