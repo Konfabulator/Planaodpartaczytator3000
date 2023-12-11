@@ -1,5 +1,8 @@
 # planaodpartaczytator3000
 import subprocess
+import os, sys
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
+
 
 try:
     # subprocess.check_call(["pip", "install", "-r", "requirements.txt"])
@@ -10,7 +13,7 @@ try:
 except subprocess.CalledProcessError:
     print("Nie udało się zainstalować wymaganych bibliotek. Spróbuj ręcznie zainstalować biblioteki z pliku requirements.txt")
 
-import os
+from time          import sleep
 from tabulate       import tabulate
 from decoder        import decode_subj_file
 from plano_definder import defind_all_plans
@@ -23,9 +26,12 @@ tabelka = lambda df:tabulate(df,Kolumny,tablefmt='presto')
 language = input('Choose language [pl/en]: ').strip()
 
 if language == 'pl':
-    file_to_read = input("Wprowadź nazwę pliku z godzinami (dowolna nazwa/już utworzony plik): ")                      # "Z2022_23.txt"
+    file_to_read = input("Wprowadź nazwę pliku z godzinami (dowolna nazwa/już utworzony plik & np.:nowy_plan): ")                      # "Z2022_23.txt"
 else:
     file_to_read = input("Enter the name of the file with hours (any name/already created file): ")                      # "Z2022_23.txt"
+
+if file_to_read[-4:] != '.txt':
+    file_to_read += '.txt'
     
 file_to_write = "Plany_" + file_to_read                                         # plik wyjściowy z planami zajęć
 # get_hours(directory , file_to_read)                                             # tworzenie pliku wejściowego
@@ -112,3 +118,11 @@ if language == 'pl':
 else:
     print('Found '+ str(len(wykonalne_plany)) + ' out of '+str(possibilities) + ' Schedules.')
     print(f'Finished Schedule in file: "{file_to_write}"\n')
+
+print('\n\n')
+# stop terminal window from closing
+if language == 'pl':
+    print('Aby zamknąć to okno naciśnij Enter...')
+else:
+    print('Press Enter to close this window...')
+input()

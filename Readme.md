@@ -11,8 +11,12 @@ Odpartaczy każdy plan <span style="color:green;">niemal dowolnej, polskiej</spa
 </span>
 
 ## <span style="color:orange;"> Obsługi Instrukcja </span>
-Celem skorzystania z aplikacji wystarczy uruchomić plik "planaodpartaczytator3000.py".
-(Brakujące biblioteki pythona [>=3.6] należy samodzielnie doinstalować).
+Jeśli chcesz skorzystać z niniejszego narzędzia pobierz pythona ze strony: https://www.python.org/downloads/ i zainstaluj go.<br>
+Następnie pobierz repozytorium i rozpakuj je w dowolnym miejscu na dysku swojego komputera.<br>
+
+Celem skorzystania z aplikacji wystarczy uruchomić plik "planaodpartaczytator3000.py"
+w rozpakowanym folderze, klikając na niego (na plik) prawym przyciskiem myszy i wybierając opcję "Otwórz za pomocą" i wybierając python.<br>
+(Brakujące biblioteki pythona [>=3.6] zainstalowane zostaną automatycznie).
 
 - <span style="color:orange;">Podać nazwę pliku ze wszystkimi grupami zajęciowymi. </span>
 
